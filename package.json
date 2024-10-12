@@ -1,0 +1,22 @@
+{
+  "name": "create-alapa-app",
+  "version": "1.0.0",
+  "bin": {
+    "create-alapa-app": "./dist/index.js"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "add-shebang": "node add-shebang.js",
+    "build": "npm run tsc",
+    "dev": "tsc && npm run add-shebang && create-alapa-app"
+  },
+  "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "chalk": "^4.1.2",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "@types/yargs": "^17.0.33"
+  }
+}
