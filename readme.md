@@ -35,13 +35,13 @@ Default: `true` <br/>
 #### Examples:
 
 ```bash
-npx create-alapa-app my-alapa-app --install false
+npx create-alapa-app my-alapa-app --no-install
 ```
 
 OR
 
 ```bash
-npx create-alapa-app my-alapa-app --no-install
+npx create-alapa-app my-alapa-app --install
 ```
 
 ## Contributing
