@@ -24,7 +24,7 @@ async function downloadFile(url: string, outputPath: string) {
 
 function extractZip(zipPath: string, outputPath: string) {
   const zip = new AdmZip(zipPath);
-  const tempOutputDir = path.join(tempDir, outputPath);
+  const tempOutputDir = path.join(tempDir, "alapa-project");
   zip.extractAllTo(tempOutputDir, true);
   const tempOutput = path.join(tempOutputDir, "alapa-app-main");
   fs.cpSync(tempOutput, outputPath, { recursive: true });
