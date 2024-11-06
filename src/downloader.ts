@@ -38,5 +38,6 @@ export async function downloadAndExtract(outputPath: string) {
     fs.unlinkSync(outputZip);
   } catch (error) {
     console.error("Error:", error);
+    process.exit(1);
   }
 }
