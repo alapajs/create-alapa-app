@@ -3,7 +3,11 @@ import * as path from "path";
 import chalk from "chalk";
 import { downloadAndExtract } from "./downloader";
 import { isDirectoryEmpty } from "./check-empty-dir";
-import { ConfigureEnvFile, generateEncryptionKey } from "./configure/env";
+import {
+  ConfigureEnvFile,
+  generateEncryptionKey,
+  getDevPort,
+} from "./configure/env";
 import { runCommand } from "./run-cmd";
 let projectDir = "";
 
@@ -40,10 +44,16 @@ export async function createProject(
     projectDir,
     appName: path.basename(projectDir),
     encryptionKey: generateEncryptionKey(),
+    wtRefresh: generateEncryptionKey(),
+    wtSecret: generateEncryptionKey(),
+    secretKey: generateEncryptionKey(),
+    devPort: await getDevPort(),
   });
   if (options["install"] === true) {
     console.log(chalk.blue(`Installing dependencies...`));
-    await runCommand(`cd ${projectDir}  && npm install`);
+    await runCommand(
+      `cd ${projectDir} && npm uninstall alapa && npm install alapa@alpha && npm install`
+    );
   }
 
   console.log(chalk.green(`Project ${projectName} created successfully.`));

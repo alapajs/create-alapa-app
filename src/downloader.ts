@@ -5,7 +5,7 @@ import AdmZip from "adm-zip";
 import * as os from "os";
 
 const tempDir = os.tmpdir();
-const url = "https://github.com/alapajs/alapa-app/archive/refs/heads/main.zip";
+const url = "https://github.com/alapajs/alapa-app/archive/refs/heads/alpha.zip";
 const outputZip = path.join(tempDir, "alapa-app.zip");
 
 async function downloadFile(url: string, outputPath: string) {
@@ -26,7 +26,7 @@ function extractZip(zipPath: string, outputPath: string) {
   const zip = new AdmZip(zipPath);
   const tempOutputDir = path.join(tempDir, "alapa-project");
   zip.extractAllTo(tempOutputDir, true);
-  const tempOutput = path.join(tempOutputDir, "alapa-app-main");
+  const tempOutput = path.join(tempOutputDir, "alapa-app-alpha");
   fs.cpSync(tempOutput, outputPath, { recursive: true });
   fs.rmSync(tempOutput, { recursive: true });
 }
